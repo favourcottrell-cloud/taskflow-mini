@@ -1,0 +1,772 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TaskFlow | Your Personal Workspace</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app-shell">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <a href="#" class="brand">
+                <span class="brand-icon">t.</span>
+                <span>taskflow</span>
+            </a>
+
+            <div class="sidebar-label">WORKSPACE</div>
+
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-link active">
+                    <span class="nav-icon">◷</span>
+                    <span>My Tasks</span>
+                    <span class="nav-indicator"></span>
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <div class="sidebar-note">
+                    <span class="note-dot"></span>
+                    <div>
+                        <strong>Stay focused.</strong>
+                        <p>One task at a time.</p>
+                    </div>
+                </div>
+
+                <button type="button" class="settings-trigger" id="open-settings">
+                    <span class="settings-icon">⚙</span>
+                    <span>Settings</span>
+                </button>
+
+                <div class="sidebar-footer">
+                    <span>PERSONAL PRODUCTIVITY</span>
+                    <span>VERSION 2.0</span>
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+
+            <!-- TOP NAVIGATION -->
+            <header class="topbar">
+
+                <div class="breadcrumb">
+                    Workspace <span>/</span> My Tasks
+                </div>
+
+                <div class="workspace-tag">
+                    <span></span>
+                    PERSONAL SPACE
+                </div>
+
+            </header>
+
+
+            <div class="content-wrapper">
+
+                <!-- WELCOME SECTION -->
+                <section class="welcome">
+
+                    <div class="date-label">
+                        <span class="date-dot"></span>
+                        <p id="current-date"></p>
+                    </div>
+
+                    <div class="welcome-content">
+
+                        <div>
+                            <p class="eyebrow" id="personal-greeting">
+                                YOUR PERSONAL WORKSPACE
+                            </p>
+
+                            <h1>
+                                Make room for<br>
+                                <span>what matters.</span>
+                            </h1>
+
+                            <p class="welcome-description" id="welcome-description">
+                                Organise your thoughts, focus on your priorities,
+                                and make progress every day.
+                            </p>
+                        </div>
+
+                        <div class="welcome-decoration">
+                            <div class="decoration-circle circle-one"></div>
+                            <div class="decoration-circle circle-two"></div>
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- QUICK CAPTURE -->
+                <section class="create-section">
+
+                    <div class="section-caption">
+                        <span>QUICK CAPTURE</span>
+                        <span>ADD SOMETHING TO YOUR LIST</span>
+                    </div>
+
+                    <div class="task-input">
+
+                        <input
+                            type="text"
+                            id="task-input"
+                            placeholder="What needs your attention?"
+                            aria-label="New task"
+                        >
+
+                        <button id="add-task" type="button">
+                            Add task
+
+                            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                                <path
+                                    d="M4 10H15"
+                                    stroke="currentColor"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                />
+
+                                <path
+                                    d="M10 5L15 10L10 15"
+                                    stroke="currentColor"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                            </svg>
+                        </button>
+
+                    </div>
+
+
+                    <!-- TASK DESCRIPTION -->
+                    <div class="task-description-field">
+
+                        <label for="task-description">Description or notes</label>
+
+                        <textarea
+                            id="task-description"
+                            placeholder="Add more details about this task (optional)..."
+                            rows="3"
+                        ></textarea>
+
+                    </div>
+
+
+                    <!-- DUE DATE AND REMINDER -->
+                    <div class="reminder-settings">
+
+                        <div class="reminder-heading">
+                            <span class="reminder-icon">◷</span>
+                            <span>Due date & reminder</span>
+                            <span class="optional-label">OPTIONAL</span>
+                        </div>
+
+                        <div class="reminder-fields">
+
+                            <div class="reminder-field">
+                                <label for="task-date">Due date</label>
+                                <input type="date" id="task-date">
+                            </div>
+
+                            <div class="reminder-field">
+                                <label for="task-time">Reminder time</label>
+                                <input type="time" id="task-time">
+                            </div>
+
+                        </div>
+
+                        <p class="reminder-hint">
+                            Set a deadline and get notified when it's time to complete your task.
+                        </p>
+
+                    </div>
+
+
+                    <!-- TASK CATEGORY AND PRIORITY -->
+                    <div class="task-options">
+
+                        <div class="task-option">
+                            <label for="task-category">Category</label>
+
+                            <select id="task-category">
+                                <option value="Personal">Personal</option>
+                                <option value="Work">Work</option>
+                                <option value="School">School</option>
+                                <option value="Shopping">Shopping</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="task-option">
+                            <label for="task-priority">Priority</label>
+
+                            <select id="task-priority">
+                                <option value="Low">Low</option>
+                                <option value="Medium" selected>Medium</option>
+                                <option value="High">High</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- PRODUCTIVITY DASHBOARD -->
+                <section class="dashboard-section">
+
+                    <div class="dashboard-heading">
+
+                        <div>
+                            <p class="eyebrow">YOUR OVERVIEW</p>
+                            <h2>Productivity<span>.</span></h2>
+                        </div>
+
+                        <span class="dashboard-period">ALL TIME</span>
+
+                    </div>
+
+
+                    <!-- STATISTICS -->
+                    <div class="stats-grid">
+
+                        <div class="stat-card">
+                            <div class="stat-top">
+                                <span class="stat-label">Total tasks</span>
+                                <span class="stat-icon">▤</span>
+                            </div>
+                            <h3 id="total-tasks">0</h3>
+                            <p>Tasks created</p>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-top">
+                                <span class="stat-label">Completed</span>
+                                <span class="stat-icon">✓</span>
+                            </div>
+                            <h3 id="completed-tasks">0</h3>
+                            <p>Tasks finished</p>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-top">
+                                <span class="stat-label">Pending</span>
+                                <span class="stat-icon">◷</span>
+                            </div>
+                            <h3 id="pending-tasks">0</h3>
+                            <p>Still in progress</p>
+                        </div>
+
+                        <div class="stat-card overdue-stat-card">
+                            <div class="stat-top">
+                                <span class="stat-label">Overdue</span>
+                                <span class="stat-icon">!</span>
+                            </div>
+                            <h3 id="overdue-tasks">0</h3>
+                            <p>Past their due date</p>
+                        </div>
+
+                    </div>
+
+
+                    <!-- OVERALL PROGRESS -->
+                    <div class="progress-card">
+
+                        <div class="progress-header">
+
+                            <div>
+                                <span class="progress-label">OVERALL PROGRESS</span>
+                                <h3 id="progress-percentage">0%</h3>
+                            </div>
+
+                            <span class="progress-fraction" id="progress-fraction">
+                                0 of 0 tasks completed
+                            </span>
+
+                        </div>
+
+                        <div
+                            class="progress-track"
+                            role="progressbar"
+                            id="progress-bar"
+                            aria-label="Task completion progress"
+                            aria-valuemin="0"
+                            aria-valuemax="100"
+                            aria-valuenow="0"
+                        >
+                            <div class="progress-fill" id="progress-fill"></div>
+                        </div>
+
+                        <p class="progress-message" id="progress-message">
+                            Add your first task to start tracking your progress.
+                        </p>
+
+                    </div>
+
+
+                    <!-- PRODUCTIVITY SUMMARY -->
+                    <div class="daily-summary">
+
+                        <div class="summary-icon">✦</div>
+
+                        <div>
+                            <span class="summary-label">
+                                YOUR PRODUCTIVITY SUMMARY
+                            </span>
+
+                            <p id="productivity-summary">
+                                Every small step counts. Start by adding a task.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <!-- CATEGORY BREAKDOWN -->
+                    <div class="category-breakdown-card">
+
+                        <div class="category-breakdown-heading">
+                            <div>
+                                <span class="progress-label">TASK DISTRIBUTION</span>
+                                <h3>By category<span>.</span></h3>
+                            </div>
+                        </div>
+
+                        <div
+                            id="category-breakdown"
+                            class="category-breakdown"
+                        ></div>
+
+                        <p
+                            id="category-breakdown-empty"
+                            class="category-breakdown-empty"
+                        >
+                            Your category breakdown will appear here when you add tasks.
+                        </p>
+
+                    </div>
+
+                </section>
+
+
+                <!-- TASK SECTION -->
+                <section class="task-section">
+
+                    <div class="task-heading">
+
+                        <div>
+                            <p class="eyebrow">YOUR PRODUCTIVITY</p>
+                            <h2>My tasks<span>.</span></h2>
+                        </div>
+
+                        <div class="task-counter">
+                            <span class="counter-dot"></span>
+                            <span id="task-count">0 tasks</span>
+                        </div>
+
+                    </div>
+
+
+                    <!-- SEARCH AND SORT -->
+                    <div class="task-toolbar">
+
+                        <div class="task-search">
+
+                            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <circle
+                                    cx="11"
+                                    cy="11"
+                                    r="7"
+                                    stroke="currentColor"
+                                    stroke-width="1.7"
+                                />
+
+                                <path
+                                    d="m16 16 4 4"
+                                    stroke="currentColor"
+                                    stroke-width="1.7"
+                                    stroke-linecap="round"
+                                />
+                            </svg>
+
+                            <input
+                                type="text"
+                                id="task-search"
+                                placeholder="Search your tasks..."
+                                aria-label="Search tasks"
+                                autocomplete="off"
+                            >
+
+                        </div>
+
+                        <div class="task-sort">
+                            <label for="task-sort">Sort by</label>
+
+                            <select id="task-sort">
+                                <option value="newest">Newest first</option>
+                                <option value="oldest">Oldest first</option>
+                                <option value="due-date">Due date</option>
+                                <option value="alphabetical">A–Z</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+
+                    <!-- CATEGORY AND PRIORITY FILTERS -->
+                    <div class="advanced-filters">
+
+                        <div class="task-filter-select">
+                            <label for="category-filter">Category</label>
+
+                            <select id="category-filter">
+                                <option value="all">All categories</option>
+                                <option value="Personal">Personal</option>
+                                <option value="Work">Work</option>
+                                <option value="School">School</option>
+                                <option value="Shopping">Shopping</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="task-filter-select">
+                            <label for="priority-filter">Priority</label>
+
+                            <select id="priority-filter">
+                                <option value="all">All priorities</option>
+                                <option value="Low">Low priority</option>
+                                <option value="Medium">Medium priority</option>
+                                <option value="High">High priority</option>
+                            </select>
+                        </div>
+
+                        <div class="task-filter-select">
+                            <label for="due-filter">Due date</label>
+
+                            <select id="due-filter">
+                                <option value="all">All due dates</option>
+                                <option value="overdue">Overdue</option>
+                                <option value="today">Due today</option>
+                                <option value="upcoming">Upcoming</option>
+                                <option value="no-date">No due date</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+
+                    <!-- TASK STATUS FILTERS -->
+                    <div class="task-toolbar">
+
+                        <nav class="filters" aria-label="Filter tasks by status">
+
+                            <button type="button" class="filter active" data-filter="all">
+                                All tasks
+                            </button>
+
+                            <button type="button" class="filter" data-filter="active">
+                                In progress
+                            </button>
+
+                            <button type="button" class="filter" data-filter="completed">
+                                Completed
+                            </button>
+
+                        </nav>
+
+                        <span class="list-label">YOUR TASK LIST</span>
+
+                    </div>
+
+
+                    <!-- TASKS GENERATED BY JAVASCRIPT -->
+                    <div
+                        id="task-list"
+                        class="task-list"
+                        aria-live="polite"
+                    ></div>
+
+                </section>
+
+
+                <!-- FOOTER -->
+                <footer class="main-footer">
+                    <span>Small steps. Meaningful progress.</span>
+                    <span>BUILT WITH INTENTION.</span>
+                </footer>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <!-- EDIT TASK MODAL -->
+    <div class="modal-overlay" id="edit-modal" aria-hidden="true">
+
+        <div
+            class="edit-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="edit-modal-title"
+        >
+
+            <div class="modal-header">
+
+                <div>
+                    <span class="modal-eyebrow">TASK MANAGEMENT</span>
+                    <h2 id="edit-modal-title">Edit task</h2>
+                    <p>Make changes to your task details.</p>
+                </div>
+
+                <button
+                    type="button"
+                    class="modal-close"
+                    id="close-modal"
+                    aria-label="Close modal"
+                >×</button>
+
+            </div>
+
+
+            <form id="edit-task-form">
+
+                <div class="modal-field">
+                    <label for="edit-task-input">Task name</label>
+
+                    <input
+                        type="text"
+                        id="edit-task-input"
+                        placeholder="What needs to be done?"
+                        required
+                    >
+                </div>
+
+
+                <!-- EDIT DESCRIPTION -->
+                <div class="modal-field">
+                    <label for="edit-task-description">Description or notes</label>
+
+                    <textarea
+                        id="edit-task-description"
+                        rows="3"
+                        placeholder="Add more details about this task..."
+                    ></textarea>
+                </div>
+
+
+                <!-- EDIT REMINDER DETAILS -->
+                <div class="modal-fields-row">
+
+                    <div class="modal-field">
+                        <label for="edit-task-date">Due date</label>
+                        <input type="date" id="edit-task-date">
+                    </div>
+
+                    <div class="modal-field">
+                        <label for="edit-task-time">Reminder time</label>
+                        <input type="time" id="edit-task-time">
+                    </div>
+
+                </div>
+
+
+                <!-- EDIT CATEGORY AND PRIORITY -->
+                <div class="modal-fields-row">
+
+                    <div class="modal-field">
+                        <label for="edit-task-category">Category</label>
+
+                        <select id="edit-task-category">
+                            <option value="Personal">Personal</option>
+                            <option value="Work">Work</option>
+                            <option value="School">School</option>
+                            <option value="Shopping">Shopping</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="modal-field">
+                        <label for="edit-task-priority">Priority</label>
+
+                        <select id="edit-task-priority">
+                            <option value="Low">Low</option>
+                            <option value="Medium">Medium</option>
+                            <option value="High">High</option>
+                        </select>
+                    </div>
+
+                </div>
+
+
+                <p class="modal-hint">
+                    Leave both reminder fields empty if you don't need a reminder.
+                </p>
+
+
+                <div class="modal-actions">
+
+                    <button type="button" class="cancel-modal" id="cancel-modal">
+                        Cancel
+                    </button>
+
+                    <button type="submit" class="save-modal">
+                        Save changes
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- FIRST-TIME WELCOME MODAL -->
+    <div class="welcome-modal-overlay" id="welcome-modal" aria-hidden="true">
+
+        <div
+            class="welcome-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="welcome-modal-title"
+        >
+
+            <span class="modal-eyebrow">A SPACE OF YOUR OWN</span>
+
+            <h2 id="welcome-modal-title">Let's make this personal.</h2>
+
+            <p>
+                What should we call you? Your name will appear
+                whenever you open TaskFlow.
+            </p>
+
+            <form id="welcome-form">
+
+                <label for="user-name">Your name</label>
+
+                <input
+                    type="text"
+                    id="user-name"
+                    placeholder="e.g. Chelsea"
+                    maxlength="30"
+                    autocomplete="given-name"
+                    required
+                >
+
+                <button type="submit">
+                    <span>Create my workspace</span>
+                    <span aria-hidden="true">→</span>
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- SETTINGS MODAL -->
+    <div class="modal-overlay" id="settings-modal" aria-hidden="true">
+
+        <div
+            class="edit-modal settings-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="settings-title"
+        >
+
+            <div class="modal-header">
+
+                <div>
+                    <span class="modal-eyebrow">PERSONAL PREFERENCES</span>
+                    <h2 id="settings-title">Settings</h2>
+                    <p>Update your personal workspace.</p>
+                </div>
+
+                <button
+                    type="button"
+                    class="modal-close"
+                    id="close-settings"
+                    aria-label="Close settings"
+                >&times;</button>
+
+            </div>
+
+
+            <form id="settings-form">
+
+                <div class="modal-field">
+
+                    <label for="settings-name">Your name</label>
+
+                    <input
+                        type="text"
+                        id="settings-name"
+                        placeholder="Enter your name"
+                        maxlength="30"
+                        autocomplete="given-name"
+                        required
+                    >
+
+                    <p class="modal-hint">
+                        This name appears in your TaskFlow greeting.
+                    </p>
+
+                </div>
+
+
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        class="cancel-modal"
+                        id="cancel-settings"
+                    >
+                        Cancel
+                    </button>
+
+                    <button type="submit" class="save-modal">
+                        Save changes
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
