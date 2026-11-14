@@ -37,7 +37,7 @@ It features task categorization, priority levels, deadline tracking, productivit
 1. Clone the repository:
 
    ```bash
-   git clone YOUR_GITHUB_REPOSITORY_URL
+git clone https://github.com/favourcottrell-cloud/taskflow-mini.git
    ```
 
 2. Open the project folder in Visual Studio Code.
