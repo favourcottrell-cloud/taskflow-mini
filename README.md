@@ -1,6 +1,19 @@
+:::writing{variant="document" id="63823"}
 # TaskFlow Mini
 
 A simple and elegant task management application built to help users organize daily activities, manage deadlines, and stay productive.
+
+## Live Demo
+
+Try TaskFlow Mini here:
+
+[**View Live Application**](https://favourcottrell-cloud.github.io/taskflow-mini/)
+
+## GitHub Repository
+
+Explore the source code:
+
+[**View GitHub Repository**](https://github.com/favourcottrell-cloud/taskflow-mini)
 
 ## Overview
 
@@ -37,7 +50,7 @@ It features task categorization, priority levels, deadline tracking, productivit
 1. Clone the repository:
 
    ```bash
-git clone https://github.com/favourcottrell-cloud/taskflow-mini.git
+   git clone https://github.com/favourcottrell-cloud/taskflow-mini.git
    ```
 
 2. Open the project folder in Visual Studio Code.
@@ -84,8 +97,7 @@ Building TaskFlow Mini helped me practice:
 Frontend Developer | UI/UX Designer
 
 - [LinkedIn](https://www.linkedin.com/in/tonye-cottrell-982a54394)
-- [Portfolio] (https://www.behance.net/favourcottrell123)
-
+- [Behance](https://www.behance.net/favourcottrell123)
 
 ---
 
